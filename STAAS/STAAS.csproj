@@ -1,0 +1,477 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DBEA692D-6231-4180-A886-5DC93915C2ED}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>STAAS</RootNamespace>
+    <AssemblyName>STAAS</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DPCtlUruNet, Version=1.0.0.1, Culture=neutral, PublicKeyToken=7f32ef930fec5e5f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files\DigitalPersona\U.are.U SDK\Windows\Lib\DotNET\DPCtlUruNet.dll</HintPath>
+    </Reference>
+    <Reference Include="DPCtlXUru, Version=1.0.0.1, Culture=neutral, PublicKeyToken=7f32ef930fec5e5f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files\DigitalPersona\U.are.U SDK\Windows\Lib\DotNET\DPCtlXUru.dll</HintPath>
+    </Reference>
+    <Reference Include="DPUruNet, Version=1.0.0.1, Culture=neutral, PublicKeyToken=7f32ef930fec5e5f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files\DigitalPersona\U.are.U SDK\Windows\Lib\DotNET\DPUruNet.dll</HintPath>
+    </Reference>
+    <Reference Include="DPXUru, Version=1.0.0.1, Culture=neutral, PublicKeyToken=7f32ef930fec5e5f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files\DigitalPersona\U.are.U SDK\Windows\Lib\DotNET\DPXUru.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
+    <Reference Include="System.DirectoryServices.Protocols" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Auth\AdminLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Auth\AdminLogin.designer.cs">
+      <DependentUpon>AdminLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Customization\AddCompanyDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Customization\AddCompanyDetails.Designer.cs">
+      <DependentUpon>AddCompanyDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fingerprint\Attendance.cs">
+      <DependentUpon>Fingerprint.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Fingerprint\Capabilities.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fingerprint\Capabilities.designer.cs">
+      <DependentUpon>Capabilities.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fingerprint\Capture.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fingerprint\Capture.designer.cs">
+      <DependentUpon>Capture.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fingerprint\Enrollment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fingerprint\Enrollment.designer.cs">
+      <DependentUpon>Enrollment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fingerprint\EnrollmentControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fingerprint\EnrollmentControl.designer.cs">
+      <DependentUpon>EnrollmentControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fingerprint\Fingerprint.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Fingerprint.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Fingerprint\Fingerprint.cs">
+      <DependentUpon>Fingerprint.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Fingerprint\Fingerprint.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Fingerprint.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Fingerprint\Fingerprint1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Fingerprint.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Fingerprint\FingerVerify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fingerprint\FingerVerify.designer.cs">
+      <DependentUpon>FingerVerify.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fingerprint\FingerEnroll.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fingerprint\FingerEnroll.designer.cs">
+      <DependentUpon>FingerEnroll.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fingerprint\Form_Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fingerprint\Form_Main.designer.cs">
+      <DependentUpon>Form_Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fingerprint\Identification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fingerprint\Identification.designer.cs">
+      <DependentUpon>Identification.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fingerprint\IdentificationControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fingerprint\IdentificationControl.designer.cs">
+      <DependentUpon>IdentificationControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fingerprint\Movement.cs">
+      <DependentUpon>Fingerprint.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Food\BookLunch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Food\BookLunch.designer.cs">
+      <DependentUpon>BookLunch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Food\FoodTable.cs">
+      <DependentUpon>Lunch.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Food\Lunch.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Lunch.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Food\Lunch.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Lunch.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Food\Lunch.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Lunch.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Food\LunchApp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Food\LunchApp.designer.cs">
+      <DependentUpon>LunchApp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Food\LunchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Food\LunchForm.designer.cs">
+      <DependentUpon>LunchForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Food\LunchRegister.cs">
+      <DependentUpon>Lunch.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Other\MovementRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Other\MovementRegister.designer.cs">
+      <DependentUpon>MovementRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Other\MovementRegisterReason.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Other\MovementRegisterReason.designer.cs">
+      <DependentUpon>MovementRegisterReason.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fingerprint\MovementVerify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fingerprint\MovementVerify.Designer.cs">
+      <DependentUpon>MovementVerify.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fingerprint\ReaderSelection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fingerprint\ReaderSelection.designer.cs">
+      <DependentUpon>ReaderSelection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fingerprint\Stream.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fingerprint\Stream.designer.cs">
+      <DependentUpon>Stream.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fingerprint\Verification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fingerprint\Verification.designer.cs">
+      <DependentUpon>Verification.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\FormPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layout\FormPage.designer.cs">
+      <DependentUpon>FormPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\LandingPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layout\LandingPage.designer.cs">
+      <DependentUpon>LandingPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Other\LatenessScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Other\LatenessScreen.designer.cs">
+      <DependentUpon>LatenessScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Other\AdminSuccessModal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Other\AdminSuccessModal.designer.cs">
+      <DependentUpon>AdminSuccessModal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Configuration\AddEditHoliday.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuration\AddEditHoliday.Designer.cs">
+      <DependentUpon>AddEditHoliday.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\AddEditWorkHour.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuration\AddEditWorkHour.Designer.cs">
+      <DependentUpon>AddEditWorkHour.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminDashboard.Designer.cs">
+      <DependentUpon>AdminDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Other\SuccessSignIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Other\SuccessSignIn.designer.cs">
+      <DependentUpon>SuccessSignIn.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Auth\AdminLogin.resx">
+      <DependentUpon>AdminLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Customization\AddCompanyDetails.resx">
+      <DependentUpon>AddCompanyDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fingerprint\Capabilities.resx">
+      <DependentUpon>Capabilities.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fingerprint\Capture.resx">
+      <DependentUpon>Capture.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fingerprint\Enrollment.resx">
+      <DependentUpon>Enrollment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fingerprint\EnrollmentControl.resx">
+      <DependentUpon>EnrollmentControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fingerprint\FingerVerify.resx">
+      <DependentUpon>FingerVerify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fingerprint\FingerEnroll.resx">
+      <DependentUpon>FingerEnroll.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fingerprint\Form_Main.resx">
+      <DependentUpon>Form_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fingerprint\Identification.resx">
+      <DependentUpon>Identification.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fingerprint\IdentificationControl.resx">
+      <DependentUpon>IdentificationControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fingerprint\MovementVerify.resx">
+      <DependentUpon>MovementVerify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Food\BookLunch.resx">
+      <DependentUpon>BookLunch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Food\LunchApp.resx">
+      <DependentUpon>LunchApp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Food\LunchForm.resx">
+      <DependentUpon>LunchForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Other\MovementRegister.resx">
+      <DependentUpon>MovementRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Other\MovementRegisterReason.resx">
+      <DependentUpon>MovementRegisterReason.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fingerprint\ReaderSelection.resx">
+      <DependentUpon>ReaderSelection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fingerprint\Stream.resx">
+      <DependentUpon>Stream.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fingerprint\Verification.resx">
+      <DependentUpon>Verification.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\FormPage.resx">
+      <DependentUpon>FormPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\LandingPage.resx">
+      <DependentUpon>LandingPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Other\LatenessScreen.resx">
+      <DependentUpon>LatenessScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Other\AdminSuccessModal.resx">
+      <DependentUpon>AdminSuccessModal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Configuration\AddEditHoliday.resx">
+      <DependentUpon>AddEditHoliday.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\AddEditWorkHour.resx">
+      <DependentUpon>AddEditWorkHour.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\AdminDashboard.resx">
+      <DependentUpon>AdminDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Other\SuccessSignIn.resx">
+      <DependentUpon>SuccessSignIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="Fingerprint\Fingerprint.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Fingerprint.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Fingerprint\Fingerprint.edmx.diagram">
+      <DependentUpon>Fingerprint.edmx</DependentUpon>
+    </None>
+    <EntityDeploy Include="Food\Lunch.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Lunch.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Food\Lunch.edmx.diagram">
+      <DependentUpon>Lunch.edmx</DependentUpon>
+    </None>
+    <None Include="Properties\DataSources\STAAS.Fingerprint.Attendance.datasource" />
+    <None Include="Properties\DataSources\STAAS.Fingerprint.Fingerprint.datasource" />
+    <None Include="Properties\DataSources\STAAS.Fingerprint.Movement.datasource" />
+    <None Include="Properties\DataSources\STAAS.Food.FoodTable.datasource" />
+    <None Include="Properties\DataSources\STAAS.Food.LunchRegister.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="EntityFramework">
+      <Version>6.4.4</Version>
+    </PackageReference>
+    <PackageReference Include="MaterialSkin.2">
+      <Version>2.3.1</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Group 42744 %282%29.png" />
+    <None Include="Resources\image 1.png" />
+    <None Include="Resources\Logo_2 1.png" />
+    <None Include="Resources\Background Up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Black Background11.png" />
+    <None Include="Resources\Success Icon2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sign Out.png" />
+    <None Include="Resources\Sign In.png" />
+    <None Include="Resources\Background Right.png" />
+    <None Include="Resources\arrow back white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Fingerprint\Fingerprint.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Fingerprint.edmx</DependentUpon>
+      <LastGenOutput>Fingerprint.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Fingerprint\Fingerprint.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Fingerprint.edmx</DependentUpon>
+      <LastGenOutput>Fingerprint1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Food\Lunch.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Lunch.edmx</DependentUpon>
+      <LastGenOutput>Lunch.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Food\Lunch.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Lunch.edmx</DependentUpon>
+      <LastGenOutput>Lunch.cs</LastGenOutput>
+    </Content>
+    <None Include="Resources\success icon.png" />
+    <None Include="Resources\staas-logo-white.png" />
+    <None Include="Resources\staas-logo-blue.png" />
+    <None Include="Resources\landing-background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BookLunch.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

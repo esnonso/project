@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32819.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "STAAS", "STAAS\STAAS.csproj", "{DBEA692D-6231-4180-A886-5DC93915C2ED}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DBEA692D-6231-4180-A886-5DC93915C2ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBEA692D-6231-4180-A886-5DC93915C2ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBEA692D-6231-4180-A886-5DC93915C2ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBEA692D-6231-4180-A886-5DC93915C2ED}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AC5C8C64-45E7-471D-80E1-5464A6698D4B}
+	EndGlobalSection
+EndGlobal
