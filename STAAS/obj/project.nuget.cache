@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "yki6kUlZVJoHKt9vXMgmv/ahCO7f8WKqFfwHJBhoYWuyMbtwJjIxYKQEgfL7pjBf+tdP2luDu5NjWN4T+NzorQ==",
+  "dgSpecHash": "0wqjOD2MM6ePxuKR9qgXUyPaE8KsOYpjpshBOZm+W3cC4jBBMXq+pEEl5/Rc+QliBS821iR/ENCvc4SWVpOYWA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\chinonso\\source\\repos\\STAAS_sln\\STAAS\\STAAS.csproj",
+  "projectFilePath": "C:\\Users\\chinonso\\source\\repos\\project\\STAAS\\STAAS.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\chinonso\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\chinonso\\.nuget\\packages\\materialskin.2\\2.3.1\\materialskin.2.2.3.1.nupkg.sha512"

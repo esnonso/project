@@ -97,7 +97,7 @@
             // 
             // foodTableBindingSource
             // 
-            this.foodTableBindingSource.DataSource = typeof(STAAS.Food.FoodTable);
+            this.foodTableBindingSource.DataSource = typeof(STAAS.Food.Food);
             // 
             // foodTextBox
             // 

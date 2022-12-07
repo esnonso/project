@@ -20,7 +20,6 @@ namespace fingerprint
 {
     public partial class FingerEnroll : Form
     {
-        BindingSource fingerprintBindingSource = new BindingSource();
         string name;
         string email;
         public void SetName(string n)
@@ -254,11 +253,9 @@ namespace fingerprint
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            db.Fingerprints.Load();
-            this.fingerprintBindingSource1.DataSource = db.Fingerprints.Local.ToBindingList();
-            this.fingerprintBindingSource1.AddNew();
-            this.nameTextBox.Text = name;
-            this.emailTextBox.Text = email;
+            db.Staffs.Load();
+            this.staffBindingSource.DataSource = db.Staffs.Local.ToBindingList();
+            this.staffBindingSource.AddNew();
             // Reset variables
             LoadScanners();
             firstFinger = null;
@@ -280,6 +277,7 @@ namespace fingerprint
             {
                 //this.Close();
             }
+           PopulateBoxes();
         }
 
         /// <summary>
@@ -397,7 +395,7 @@ namespace fingerprint
                             return;
                         }
                     }
-                    if(count >= 4)
+                    if(count < 4)
                     {
                         MessageBox.Show("Now place the same finger on the reader.");
                     }
@@ -457,17 +455,12 @@ namespace fingerprint
 
         private void SaveUser()
         {
-            if(departmentTextBox.Text == "" || genderComboBox.Text == "")
-            {
-                MessageBox.Show("Fill Department and Gender Boxes");
-                return;
-            }
             if (resultEnrollment != null)
             {
-                this.templateTextBox.Text = Fmd.SerializeXml(resultEnrollment.Data);
-                nameTextBox.Text = name;
-                emailTextBox.Text = email;
-                this.fingerprintBindingSource1.EndEdit();
+                this.nameTextBox.Text = name;
+                this.emailTextBox.Text = email;
+                this.fingerTemplateTextBox.Text = Fmd.SerializeXml(resultEnrollment.Data);
+                this.staffBindingSource.EndEdit();
                 Int32 r = db.SaveChanges();
                 if (r > 0)
                 {
@@ -485,6 +478,27 @@ namespace fingerprint
         private void save_button_Click(object sender, EventArgs e)
         { 
             SaveUser();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void departmentTextBox_TextChanged(object sender, EventArgs e)
+        {
+            PopulateBoxes();
+        }
+
+        private void genderComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            PopulateBoxes();
+        }
+
+        private void PopulateBoxes()
+        {
+            this.nameTextBox.Text = name;
+            this.emailTextBox.Text = email;
         }
     }
 }

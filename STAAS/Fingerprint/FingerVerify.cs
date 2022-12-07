@@ -298,10 +298,10 @@ namespace fingerprint
 
                     firstFinger = resultConversion.Data;
                  
-                    var fingerprintsData = from data in db.Fingerprints select data;
-                    foreach (var fingerprint in fingerprintsData)
+                    var staffData = from data in db.Staffs select data;
+                    foreach (var staff in staffData)
                     {
-                        Fmd val = Fmd.DeserializeXml(fingerprint.Template);
+                        Fmd val = Fmd.DeserializeXml(staff.FingerTemplate);
                         CompareResult compare = Comparison.Compare(firstFinger, 0, val, 0);
                         if (compare.ResultCode != Constants.ResultCode.DP_SUCCESS)
                         {
@@ -310,12 +310,10 @@ namespace fingerprint
                         }
                         if (Convert.ToDouble(compare.Score.ToString()) == 0)
                         {
-                            username = fingerprint.Name;
-                            //userUniqueId = fingerprint.UniqueId;
+                            username = staff.Name;
                             var myDate = DateTime.Now;
                             var dateString = myDate.Date.ToShortDateString();
-                            var userAttendance = from data in db.Attendances where data.Email == fingerprint.Email && data.Date == dateString select data.TimeIn;
-
+                            var userAttendance = from data in db.Attendances where data.StaffID == staff.ID && data.Date == dateString select data.TimeIn;
 
                             if (userAttendance.Count() == 0)
                             {                             
@@ -324,10 +322,7 @@ namespace fingerprint
                                     SetLateReason();
                                 }
                                 SetRequest("signIn");
-                                SetName(fingerprint.Name);
-                                SetDepartment(fingerprint.Department);
-                                SetGender(fingerprint.Gender);
-                                SetEmail(fingerprint.Email);
+                                SetName(staff.Name);
                                 SetDate();
                                 count++;
                                 break;
@@ -335,11 +330,10 @@ namespace fingerprint
                             else
                             {
                                 SetRequest("signOut");
-                                SetEmail(fingerprint.Email);
                                 var dateAndTime = DateTime.Now;
                                 string date = dateAndTime.Date.ToShortDateString();
                                 signOutTime = dateAndTime.ToString("HH:mm:ss");
-                                var user = from data in db.Attendances where data.Email == fingerprint.Email && data.Date == date  select data;
+                                var user = from data in db.Attendances where data.StaffID == staff.ID && data.Date == date  select data;
                                 foreach(var item in user)
                                 {
                                     item.TimeOut = signOutTime;
@@ -355,7 +349,7 @@ namespace fingerprint
                         if(requestType == "signIn") {
                             BookLunch form = new BookLunch();
                             form.SetName(username);
-                            form.SetEmail(emailTextBox.Text);
+                          
                             form.SetTime(timeInTextBox.Text);
                             CurrentReader.Dispose();
                             CloseForm();
@@ -365,7 +359,6 @@ namespace fingerprint
                         if(requestType == "signOut") {
                             SuccessSignIn form = new SuccessSignIn();
                             form.SetName(username);
-                            form.SetEmail(emailTextBox.Text);
                             form.SetRequest("signOut");
                             form.SetTime(signOutTime);
                             CurrentReader.Dispose();
@@ -450,7 +443,7 @@ namespace fingerprint
         private void FingerVerify_Load(object sender, EventArgs e)
         {
             LoadScanners();
-            db.Fingerprints.Load();
+            db.Staffs.Load();
             db.Attendances.Load();
 
             this.attendanceBindingSource.DataSource = db.Attendances.Local.ToBindingList();
@@ -478,9 +471,6 @@ namespace fingerprint
 
         delegate void SetNameCallback(string text);
         delegate void CloseFormCallBack();
-        delegate void SetDepartmentCallback(string text);
-        delegate void SetGenderCallback(string text);
-        delegate void SetEmailCallback(string text);
         delegate void SetDateCallback();
         delegate void SetLateCallback();
         delegate void SetRequestCallback(string text);
@@ -490,53 +480,14 @@ namespace fingerprint
             // InvokeRequired required compares the thread ID of the
             // calling thread to the thread ID of the creating thread.
             // If these threads are different, it returns true.
-            if (this.staffTextBox.InvokeRequired)
+            if (this.staffIDNumericUpDown.InvokeRequired)
             {
                 SetNameCallback d = new SetNameCallback(SetName);
                 this.Invoke(d, new object[] { text });
             }
             else
             {
-                this.staffTextBox.Text = text;
-            }
-        }
-
-        private void SetDepartment(string text)
-        {
-            if (this.InvokeRequired)
-            {
-                SetDepartmentCallback d = new SetDepartmentCallback(SetDepartment);
-                this.Invoke(d, new object[] { text });
-            }
-            else
-            {
-                this.departmentTextBox.Text = text; 
-            }
-        }
-
-        private void SetGender(string text)
-        {
-            if (this.InvokeRequired)
-            {
-                SetGenderCallback d = new SetGenderCallback(SetGender);
-                this.Invoke(d, new object[] { text });
-            }
-            else
-            {
-                this.genderTextBox.Text = text;
-            }
-        }
-
-        private void SetEmail(string text)
-        {
-            if (this.InvokeRequired)
-            {
-                SetEmailCallback d = new SetEmailCallback(SetEmail);
-                this.Invoke(d, new object[] { text });
-            }
-            else
-            {
-                this.emailTextBox.Text = text;
+                this.staffIDNumericUpDown.Value = 1;
             }
         }
 
@@ -564,7 +515,7 @@ namespace fingerprint
             {
                 var dateAndTime = DateTime.Now;
                 this.timeInTextBox.Text = dateAndTime.ToString("HH:mm:ss");
-                this.dateTextBox.Text = dateAndTime.Date.ToShortDateString();
+                this.dateTextBox1.Text = dateAndTime.Date.ToShortDateString();
                 this.attendanceBindingSource.EndEdit();
             }
         }

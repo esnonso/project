@@ -29,83 +29,30 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.Label departmentLabel;
-            System.Windows.Forms.Label genderLabel;
-            System.Windows.Forms.Label staffLabel;
-            System.Windows.Forms.Label timeInLabel;
-            System.Windows.Forms.Label timeOutLabel;
             System.Windows.Forms.Label dateLabel;
             System.Windows.Forms.Label latenessReasonLabel;
-            System.Windows.Forms.Label emailLabel;
+            System.Windows.Forms.Label timeInLabel;
+            System.Windows.Forms.Label timeOutLabel;
+            System.Windows.Forms.Label staffIDLabel;
             this.cboReaders = new System.Windows.Forms.ComboBox();
             this.signinUsingFingerprintTextLabel = new System.Windows.Forms.Label();
-            this.departmentTextBox = new System.Windows.Forms.TextBox();
             this.attendanceBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.genderTextBox = new System.Windows.Forms.TextBox();
-            this.staffTextBox = new System.Windows.Forms.TextBox();
+            this.pbFingerprint = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dateTextBox1 = new System.Windows.Forms.TextBox();
+            this.latenessReasonTextBox = new System.Windows.Forms.TextBox();
             this.timeInTextBox = new System.Windows.Forms.TextBox();
             this.timeOutTextBox = new System.Windows.Forms.TextBox();
-            this.dateTextBox = new System.Windows.Forms.TextBox();
-            this.pbFingerprint = new System.Windows.Forms.PictureBox();
-            this.latenessReasonTextBox = new System.Windows.Forms.TextBox();
-            this.emailTextBox = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            departmentLabel = new System.Windows.Forms.Label();
-            genderLabel = new System.Windows.Forms.Label();
-            staffLabel = new System.Windows.Forms.Label();
-            timeInLabel = new System.Windows.Forms.Label();
-            timeOutLabel = new System.Windows.Forms.Label();
+            this.staffIDNumericUpDown = new System.Windows.Forms.NumericUpDown();
             dateLabel = new System.Windows.Forms.Label();
             latenessReasonLabel = new System.Windows.Forms.Label();
-            emailLabel = new System.Windows.Forms.Label();
+            timeInLabel = new System.Windows.Forms.Label();
+            timeOutLabel = new System.Windows.Forms.Label();
+            staffIDLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.attendanceBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbFingerprint)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.staffIDNumericUpDown)).BeginInit();
             this.SuspendLayout();
-            // 
-            // departmentLabel
-            // 
-            departmentLabel.AutoSize = true;
-            departmentLabel.Location = new System.Drawing.Point(853, 251);
-            departmentLabel.Name = "departmentLabel";
-            departmentLabel.Size = new System.Drawing.Size(112, 21);
-            departmentLabel.TabIndex = 15;
-            departmentLabel.Text = "Department:";
-            // 
-            // genderLabel
-            // 
-            genderLabel.AutoSize = true;
-            genderLabel.Location = new System.Drawing.Point(853, 295);
-            genderLabel.Name = "genderLabel";
-            genderLabel.Size = new System.Drawing.Size(74, 21);
-            genderLabel.TabIndex = 16;
-            genderLabel.Text = "Gender:";
-            // 
-            // staffLabel
-            // 
-            staffLabel.AutoSize = true;
-            staffLabel.Location = new System.Drawing.Point(853, 331);
-            staffLabel.Name = "staffLabel";
-            staffLabel.Size = new System.Drawing.Size(50, 21);
-            staffLabel.TabIndex = 17;
-            staffLabel.Text = "Staff:";
-            // 
-            // timeInLabel
-            // 
-            timeInLabel.AutoSize = true;
-            timeInLabel.Location = new System.Drawing.Point(853, 370);
-            timeInLabel.Name = "timeInLabel";
-            timeInLabel.Size = new System.Drawing.Size(69, 21);
-            timeInLabel.TabIndex = 18;
-            timeInLabel.Text = "Time In:";
-            // 
-            // timeOutLabel
-            // 
-            timeOutLabel.AutoSize = true;
-            timeOutLabel.Location = new System.Drawing.Point(853, 413);
-            timeOutLabel.Name = "timeOutLabel";
-            timeOutLabel.Size = new System.Drawing.Size(85, 21);
-            timeOutLabel.TabIndex = 19;
-            timeOutLabel.Text = "Time Out:";
             // 
             // dateLabel
             // 
@@ -115,24 +62,6 @@
             dateLabel.Size = new System.Drawing.Size(54, 21);
             dateLabel.TabIndex = 21;
             dateLabel.Text = "Date:";
-            // 
-            // latenessReasonLabel
-            // 
-            latenessReasonLabel.AutoSize = true;
-            latenessReasonLabel.Location = new System.Drawing.Point(870, 491);
-            latenessReasonLabel.Name = "latenessReasonLabel";
-            latenessReasonLabel.Size = new System.Drawing.Size(142, 21);
-            latenessReasonLabel.TabIndex = 22;
-            latenessReasonLabel.Text = "Lateness Reason:";
-            // 
-            // emailLabel
-            // 
-            emailLabel.AutoSize = true;
-            emailLabel.Location = new System.Drawing.Point(861, 449);
-            emailLabel.Name = "emailLabel";
-            emailLabel.Size = new System.Drawing.Size(55, 21);
-            emailLabel.TabIndex = 23;
-            emailLabel.Text = "Email:";
             // 
             // cboReaders
             // 
@@ -155,57 +84,9 @@
             this.signinUsingFingerprintTextLabel.Text = "RECORD ATTENDANCE";
             this.signinUsingFingerprintTextLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // departmentTextBox
-            // 
-            this.departmentTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.attendanceBindingSource, "Department", true));
-            this.departmentTextBox.Location = new System.Drawing.Point(1052, 246);
-            this.departmentTextBox.Name = "departmentTextBox";
-            this.departmentTextBox.Size = new System.Drawing.Size(100, 27);
-            this.departmentTextBox.TabIndex = 16;
-            // 
             // attendanceBindingSource
             // 
             this.attendanceBindingSource.DataSource = typeof(STAAS.Fingerprint.Attendance);
-            // 
-            // genderTextBox
-            // 
-            this.genderTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.attendanceBindingSource, "Gender", true));
-            this.genderTextBox.Location = new System.Drawing.Point(1052, 290);
-            this.genderTextBox.Name = "genderTextBox";
-            this.genderTextBox.Size = new System.Drawing.Size(100, 27);
-            this.genderTextBox.TabIndex = 17;
-            // 
-            // staffTextBox
-            // 
-            this.staffTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.attendanceBindingSource, "Staff", true));
-            this.staffTextBox.Location = new System.Drawing.Point(1052, 326);
-            this.staffTextBox.Name = "staffTextBox";
-            this.staffTextBox.Size = new System.Drawing.Size(100, 27);
-            this.staffTextBox.TabIndex = 18;
-            // 
-            // timeInTextBox
-            // 
-            this.timeInTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.attendanceBindingSource, "TimeIn", true));
-            this.timeInTextBox.Location = new System.Drawing.Point(1052, 365);
-            this.timeInTextBox.Name = "timeInTextBox";
-            this.timeInTextBox.Size = new System.Drawing.Size(100, 27);
-            this.timeInTextBox.TabIndex = 19;
-            // 
-            // timeOutTextBox
-            // 
-            this.timeOutTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.attendanceBindingSource, "TimeOut", true));
-            this.timeOutTextBox.Location = new System.Drawing.Point(1052, 408);
-            this.timeOutTextBox.Name = "timeOutTextBox";
-            this.timeOutTextBox.Size = new System.Drawing.Size(100, 27);
-            this.timeOutTextBox.TabIndex = 20;
-            // 
-            // dateTextBox
-            // 
-            this.dateTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.attendanceBindingSource, "Date", true));
-            this.dateTextBox.Location = new System.Drawing.Point(1052, 213);
-            this.dateTextBox.Name = "dateTextBox";
-            this.dateTextBox.Size = new System.Drawing.Size(100, 27);
-            this.dateTextBox.TabIndex = 22;
             // 
             // pbFingerprint
             // 
@@ -217,22 +98,6 @@
             this.pbFingerprint.TabIndex = 10;
             this.pbFingerprint.TabStop = false;
             // 
-            // latenessReasonTextBox
-            // 
-            this.latenessReasonTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.attendanceBindingSource, "LatenessReason", true));
-            this.latenessReasonTextBox.Location = new System.Drawing.Point(1018, 488);
-            this.latenessReasonTextBox.Name = "latenessReasonTextBox";
-            this.latenessReasonTextBox.Size = new System.Drawing.Size(100, 27);
-            this.latenessReasonTextBox.TabIndex = 23;
-            // 
-            // emailTextBox
-            // 
-            this.emailTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.attendanceBindingSource, "Email", true));
-            this.emailTextBox.Location = new System.Drawing.Point(1052, 443);
-            this.emailTextBox.Name = "emailTextBox";
-            this.emailTextBox.Size = new System.Drawing.Size(100, 27);
-            this.emailTextBox.TabIndex = 24;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -243,30 +108,100 @@
             this.label2.TabIndex = 25;
             this.label2.Text = "Place your finger on the scanner";
             // 
+            // dateTextBox1
+            // 
+            this.dateTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.attendanceBindingSource, "Date", true));
+            this.dateTextBox1.Location = new System.Drawing.Point(982, 213);
+            this.dateTextBox1.Name = "dateTextBox1";
+            this.dateTextBox1.Size = new System.Drawing.Size(100, 27);
+            this.dateTextBox1.TabIndex = 26;
+            // 
+            // latenessReasonLabel
+            // 
+            latenessReasonLabel.AutoSize = true;
+            latenessReasonLabel.Location = new System.Drawing.Point(859, 268);
+            latenessReasonLabel.Name = "latenessReasonLabel";
+            latenessReasonLabel.Size = new System.Drawing.Size(142, 21);
+            latenessReasonLabel.TabIndex = 26;
+            latenessReasonLabel.Text = "Lateness Reason:";
+            // 
+            // latenessReasonTextBox
+            // 
+            this.latenessReasonTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.attendanceBindingSource, "LatenessReason", true));
+            this.latenessReasonTextBox.Location = new System.Drawing.Point(1007, 265);
+            this.latenessReasonTextBox.Name = "latenessReasonTextBox";
+            this.latenessReasonTextBox.Size = new System.Drawing.Size(100, 27);
+            this.latenessReasonTextBox.TabIndex = 27;
+            // 
+            // timeInLabel
+            // 
+            timeInLabel.AutoSize = true;
+            timeInLabel.Location = new System.Drawing.Point(861, 338);
+            timeInLabel.Name = "timeInLabel";
+            timeInLabel.Size = new System.Drawing.Size(69, 21);
+            timeInLabel.TabIndex = 28;
+            timeInLabel.Text = "Time In:";
+            // 
+            // timeInTextBox
+            // 
+            this.timeInTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.attendanceBindingSource, "TimeIn", true));
+            this.timeInTextBox.Location = new System.Drawing.Point(936, 335);
+            this.timeInTextBox.Name = "timeInTextBox";
+            this.timeInTextBox.Size = new System.Drawing.Size(100, 27);
+            this.timeInTextBox.TabIndex = 29;
+            // 
+            // timeOutLabel
+            // 
+            timeOutLabel.AutoSize = true;
+            timeOutLabel.Location = new System.Drawing.Point(861, 380);
+            timeOutLabel.Name = "timeOutLabel";
+            timeOutLabel.Size = new System.Drawing.Size(85, 21);
+            timeOutLabel.TabIndex = 29;
+            timeOutLabel.Text = "Time Out:";
+            // 
+            // timeOutTextBox
+            // 
+            this.timeOutTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.attendanceBindingSource, "TimeOut", true));
+            this.timeOutTextBox.Location = new System.Drawing.Point(952, 377);
+            this.timeOutTextBox.Name = "timeOutTextBox";
+            this.timeOutTextBox.Size = new System.Drawing.Size(100, 27);
+            this.timeOutTextBox.TabIndex = 30;
+            // 
+            // staffIDLabel
+            // 
+            staffIDLabel.AutoSize = true;
+            staffIDLabel.Location = new System.Drawing.Point(849, 423);
+            staffIDLabel.Name = "staffIDLabel";
+            staffIDLabel.Size = new System.Drawing.Size(71, 21);
+            staffIDLabel.TabIndex = 30;
+            staffIDLabel.Text = "Staff ID:";
+            // 
+            // staffIDNumericUpDown
+            // 
+            this.staffIDNumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.attendanceBindingSource, "StaffID", true));
+            this.staffIDNumericUpDown.Location = new System.Drawing.Point(926, 423);
+            this.staffIDNumericUpDown.Name = "staffIDNumericUpDown";
+            this.staffIDNumericUpDown.Size = new System.Drawing.Size(120, 27);
+            this.staffIDNumericUpDown.TabIndex = 31;
+            // 
             // FingerVerify
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(484, 500);
+            this.ClientSize = new System.Drawing.Size(1297, 587);
             this.ControlBox = false;
-            this.Controls.Add(this.label2);
-            this.Controls.Add(emailLabel);
-            this.Controls.Add(this.emailTextBox);
-            this.Controls.Add(latenessReasonLabel);
-            this.Controls.Add(this.latenessReasonTextBox);
-            this.Controls.Add(dateLabel);
-            this.Controls.Add(this.dateTextBox);
+            this.Controls.Add(staffIDLabel);
+            this.Controls.Add(this.staffIDNumericUpDown);
             this.Controls.Add(timeOutLabel);
             this.Controls.Add(this.timeOutTextBox);
             this.Controls.Add(timeInLabel);
             this.Controls.Add(this.timeInTextBox);
-            this.Controls.Add(staffLabel);
-            this.Controls.Add(this.staffTextBox);
-            this.Controls.Add(genderLabel);
-            this.Controls.Add(this.genderTextBox);
-            this.Controls.Add(departmentLabel);
-            this.Controls.Add(this.departmentTextBox);
+            this.Controls.Add(latenessReasonLabel);
+            this.Controls.Add(this.latenessReasonTextBox);
+            this.Controls.Add(this.dateTextBox1);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(dateLabel);
             this.Controls.Add(this.signinUsingFingerprintTextLabel);
             this.Controls.Add(this.cboReaders);
             this.Controls.Add(this.pbFingerprint);
@@ -280,6 +215,7 @@
             this.Load += new System.EventHandler(this.FingerVerify_Load);
             ((System.ComponentModel.ISupportInitialize)(this.attendanceBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbFingerprint)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.staffIDNumericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -291,14 +227,11 @@
         internal System.Windows.Forms.PictureBox pbFingerprint;
         private System.Windows.Forms.Label signinUsingFingerprintTextLabel;
         private System.Windows.Forms.BindingSource attendanceBindingSource;
-        private System.Windows.Forms.TextBox departmentTextBox;
-        private System.Windows.Forms.TextBox genderTextBox;
-        private System.Windows.Forms.TextBox staffTextBox;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox dateTextBox1;
+        private System.Windows.Forms.TextBox latenessReasonTextBox;
         private System.Windows.Forms.TextBox timeInTextBox;
         private System.Windows.Forms.TextBox timeOutTextBox;
-        private System.Windows.Forms.TextBox dateTextBox;
-        private System.Windows.Forms.TextBox latenessReasonTextBox;
-        private System.Windows.Forms.TextBox emailTextBox;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.NumericUpDown staffIDNumericUpDown;
     }
 }

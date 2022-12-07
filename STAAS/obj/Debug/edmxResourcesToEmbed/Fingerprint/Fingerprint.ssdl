@@ -1,48 +1,73 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="STAAS_dbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="STAAS_dbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="Attendance">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TimeOut" Type="nvarchar" MaxLength="50" />
     <Property Name="TimeIn" Type="nvarchar" MaxLength="50" />
-    <Property Name="Staff" Type="nvarchar" MaxLength="100" Nullable="false" />
-    <Property Name="Date" Type="nvarchar" MaxLength="100" />
-    <Property Name="Department" Type="nvarchar" MaxLength="500" Nullable="false" />
-    <Property Name="Gender" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="Email" Type="nvarchar" MaxLength="50" />
-    <Property Name="LatenessReason" Type="nvarchar(max)" />
-    <Property Name="Name" Type="nvarchar" MaxLength="100" />
-  </EntityType>
-  <EntityType Name="Fingerprint">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
-    <Property Name="Template" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Department" Type="nvarchar" MaxLength="500" Nullable="false" />
-    <Property Name="Gender" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="LatenessReason" Type="nvarchar" MaxLength="500" />
+    <Property Name="StaffID" Type="int" Nullable="false" />
+    <Property Name="Date" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Movement">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Reason" Type="nvarchar" MaxLength="100" Nullable="false" />
-    <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
-    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
-    <Property Name="TimeIn" Type="nvarchar" MaxLength="50" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TimeOut" Type="nvarchar" MaxLength="50" />
+    <Property Name="TimeIn" Type="nvarchar" MaxLength="50" />
+    <Property Name="MovementReason" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="StaffID" Type="int" Nullable="false" />
     <Property Name="Date" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="Department" Type="nvarchar" MaxLength="100" Nullable="false" />
-    <Property Name="Gender" Type="nchar" MaxLength="10" Nullable="false" />
   </EntityType>
+  <EntityType Name="Staff">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="FingerTemplate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Department" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Gender" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="500" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Attendance_Staff">
+    <End Role="Staff" Type="Self.Staff" Multiplicity="1" />
+    <End Role="Attendance" Type="Self.Attendance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Staff">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Attendance">
+        <PropertyRef Name="StaffID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Movement_Staff">
+    <End Role="Staff" Type="Self.Staff" Multiplicity="1" />
+    <End Role="Movement" Type="Self.Movement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Staff">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Movement">
+        <PropertyRef Name="StaffID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="STAAS_dbModelStoreContainer">
     <EntitySet Name="Attendance" EntityType="Self.Attendance" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Fingerprint" EntityType="Self.Fingerprint" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Movement" EntityType="Self.Movement" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Staff" EntityType="Self.Staff" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Attendance_Staff" Association="Self.FK_Attendance_Staff">
+      <End Role="Staff" EntitySet="Staff" />
+      <End Role="Attendance" EntitySet="Attendance" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Movement_Staff" Association="Self.FK_Movement_Staff">
+      <End Role="Staff" EntitySet="Staff" />
+      <End Role="Movement" EntitySet="Movement" />
+    </AssociationSet>
   </EntityContainer>
 </Schema>

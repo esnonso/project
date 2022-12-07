@@ -73,12 +73,52 @@
     <Compile Include="Auth\AdminLogin.designer.cs">
       <DependentUpon>AdminLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Configuration\Configuration.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Configuration.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\Configuration.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Configuration.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\Configuration.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Configuration.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\daily_Management_Configs.cs">
+      <DependentUpon>Configuration.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\holiday_Management_Config.cs">
+      <DependentUpon>Configuration.tt</DependentUpon>
+    </Compile>
     <Compile Include="Customization\AddCompanyDetails.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Customization\AddCompanyDetails.Designer.cs">
       <DependentUpon>AddCompanyDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="Customization\Customization.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Customization.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Customization\Customization.cs">
+      <DependentUpon>Customization.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Customization\Customization.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Customization.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Customization\Customization1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Customization.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbConfiguration.cs" />
     <Compile Include="Fingerprint\Attendance.cs">
       <DependentUpon>Fingerprint.tt</DependentUpon>
     </Compile>
@@ -112,17 +152,14 @@
       <DependentUpon>Fingerprint.Context.tt</DependentUpon>
     </Compile>
     <Compile Include="Fingerprint\Fingerprint.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
       <DependentUpon>Fingerprint.tt</DependentUpon>
     </Compile>
     <Compile Include="Fingerprint\Fingerprint.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Fingerprint.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Fingerprint\Fingerprint1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Fingerprint.tt</DependentUpon>
     </Compile>
     <Compile Include="Fingerprint\FingerVerify.cs">
       <SubType>Form</SubType>
@@ -157,13 +194,16 @@
     <Compile Include="Fingerprint\Movement.cs">
       <DependentUpon>Fingerprint.tt</DependentUpon>
     </Compile>
+    <Compile Include="Fingerprint\Staff.cs">
+      <DependentUpon>Fingerprint.tt</DependentUpon>
+    </Compile>
     <Compile Include="Food\BookLunch.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Food\BookLunch.designer.cs">
       <DependentUpon>BookLunch.cs</DependentUpon>
     </Compile>
-    <Compile Include="Food\FoodTable.cs">
+    <Compile Include="Food\Food.cs">
       <DependentUpon>Lunch.tt</DependentUpon>
     </Compile>
     <Compile Include="Food\Lunch.Context.cs">
@@ -193,7 +233,7 @@
     <Compile Include="Food\LunchForm.designer.cs">
       <DependentUpon>LunchForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Food\LunchRegister.cs">
+    <Compile Include="Food\Lunch_Register.cs">
       <DependentUpon>Lunch.tt</DependentUpon>
     </Compile>
     <Compile Include="Other\MovementRegister.cs">
@@ -389,6 +429,20 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Fingerprint.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <EntityDeploy Include="Configuration\Configuration.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Configuration.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Configuration\Configuration.edmx.diagram">
+      <DependentUpon>Configuration.edmx</DependentUpon>
+    </None>
+    <EntityDeploy Include="Customization\Customization.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Customization.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Customization\Customization.edmx.diagram">
+      <DependentUpon>Customization.edmx</DependentUpon>
+    </None>
     <None Include="Fingerprint\Fingerprint.edmx.diagram">
       <DependentUpon>Fingerprint.edmx</DependentUpon>
     </None>
@@ -400,10 +454,8 @@
       <DependentUpon>Lunch.edmx</DependentUpon>
     </None>
     <None Include="Properties\DataSources\STAAS.Fingerprint.Attendance.datasource" />
-    <None Include="Properties\DataSources\STAAS.Fingerprint.Fingerprint.datasource" />
     <None Include="Properties\DataSources\STAAS.Fingerprint.Movement.datasource" />
-    <None Include="Properties\DataSources\STAAS.Food.FoodTable.datasource" />
-    <None Include="Properties\DataSources\STAAS.Food.LunchRegister.datasource" />
+    <None Include="Properties\DataSources\STAAS.Fingerprint.Staff.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -445,6 +497,35 @@
     <None Include="Resources\arrow back white.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\success icon.png" />
+    <None Include="Resources\staas-logo-white.png" />
+    <None Include="Resources\staas-logo-blue.png" />
+    <None Include="Resources\landing-background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BookLunch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Configuration\Configuration.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Configuration.edmx</DependentUpon>
+      <LastGenOutput>Configuration.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Configuration\Configuration.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Configuration.edmx</DependentUpon>
+      <LastGenOutput>Configuration.cs</LastGenOutput>
+    </Content>
+    <Content Include="Customization\Customization.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Customization.edmx</DependentUpon>
+      <LastGenOutput>Customization.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Customization\Customization.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Customization.edmx</DependentUpon>
+      <LastGenOutput>Customization1.cs</LastGenOutput>
+    </Content>
     <Content Include="Fingerprint\Fingerprint.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Fingerprint.edmx</DependentUpon>
@@ -453,7 +534,7 @@
     <Content Include="Fingerprint\Fingerprint.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Fingerprint.edmx</DependentUpon>
-      <LastGenOutput>Fingerprint1.cs</LastGenOutput>
+      <LastGenOutput>Fingerprint.cs</LastGenOutput>
     </Content>
     <Content Include="Food\Lunch.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -465,13 +546,6 @@
       <DependentUpon>Lunch.edmx</DependentUpon>
       <LastGenOutput>Lunch.cs</LastGenOutput>
     </Content>
-    <None Include="Resources\success icon.png" />
-    <None Include="Resources\staas-logo-white.png" />
-    <None Include="Resources\staas-logo-blue.png" />
-    <None Include="Resources\landing-background.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\BookLunch.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

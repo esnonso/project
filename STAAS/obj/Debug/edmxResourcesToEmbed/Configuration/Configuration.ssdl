@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="STAAS_dbModel2.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="daily_Management_Configs">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ResumptionTime" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ClosingTime" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Sunday" Type="nvarchar" MaxLength="50" />
+    <Property Name="Monday" Type="nvarchar" MaxLength="50" />
+    <Property Name="Tuesday" Type="nvarchar" MaxLength="50" />
+    <Property Name="Wednesday" Type="nvarchar" MaxLength="50" />
+    <Property Name="Thursday" Type="nvarchar" MaxLength="50" />
+    <Property Name="Friday" Type="nvarchar" MaxLength="50" />
+    <Property Name="Saturday" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="holiday_Management_Config">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HolidayName" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="HolidayType" Type="nvarchar" MaxLength="50" />
+    <Property Name="StartDate" Type="date" />
+    <Property Name="EndDate" Type="date" />
+  </EntityType>
+  <EntityContainer Name="STAAS_dbModel2StoreContainer">
+    <EntitySet Name="daily_Management_Configs" EntityType="Self.daily_Management_Configs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="holiday_Management_Config" EntityType="Self.holiday_Management_Config" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

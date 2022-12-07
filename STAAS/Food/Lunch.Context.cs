@@ -25,7 +25,7 @@ namespace STAAS.Food
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<FoodTable> FoodTables { get; set; }
-        public virtual DbSet<LunchRegister> LunchRegisters { get; set; }
+        public virtual DbSet<Food> Foods { get; set; }
+        public virtual DbSet<Lunch_Register> Lunch_Register { get; set; }
     }
 }

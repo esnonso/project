@@ -41,17 +41,17 @@ namespace FoodAppSTAAS.Lunch
 
         private void LunchForm_Load(object sender, EventArgs e)
         {
-            db.FoodTables.Load();
-            db.LunchRegisters.Load();
+            db.Foods.Load();
+            db.Lunch_Register.Load();
             var myDate = DateTime.Now;
             var dateString = myDate.Date.ToShortDateString();
             date = dateString;
-            var foods = from data in db.FoodTables select data;
-            this.lunchRegisterBindingSource.DataSource = db.LunchRegisters.Local.ToBindingList();
+            var foods = from data in db.Foods select data;
+            this.lunchRegisterBindingSource.DataSource = db.Lunch_Register.Local.ToBindingList();
             this.lunchRegisterBindingSource.AddNew();
             foreach (var food in foods)
             {
-                this.mainCourseTextBox.Text = food.Food;
+                this.mainCourseTextBox.Text = food.Name;
                 this.soupTextBox.Text = food.SideDish;
                 this.proteinTextBox.Text = food.Protein;
             }

@@ -14,15 +14,13 @@ namespace STAAS.Fingerprint
     
     public partial class Attendance
     {
-        public long ID { get; set; }
+        public int ID { get; set; }
         public string TimeOut { get; set; }
         public string TimeIn { get; set; }
-        public string Staff { get; set; }
-        public string Date { get; set; }
-        public string Department { get; set; }
-        public string Gender { get; set; }
-        public string Email { get; set; }
         public string LatenessReason { get; set; }
-        public string Name { get; set; }
+        public int StaffID { get; set; }
+        public string Date { get; set; }
+    
+        public virtual Staff Staff { get; set; }
     }
 }

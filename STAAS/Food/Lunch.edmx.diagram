@@ -4,9 +4,9 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="b75b2acde0f542ed8ab573451522a361" Name="Diagram1">
-        <EntityTypeShape EntityType="STAAS_dbModel1.FoodTable" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="STAAS_dbModel1.LunchRegister" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+      <Diagram DiagramId="034da8d6f1bd4c11a21ae23635e02b04" Name="Diagram1">
+        <EntityTypeShape EntityType="STAAS_dbModel1.Food" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="STAAS_dbModel1.Lunch_Register" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -21,6 +21,7 @@ namespace STAAS.UserManagement
     public partial class AdminDashboard : MaterialForm
     {
         STAAS_dbEntities1 db = new STAAS_dbEntities1();
+        string adConnection;
         public AdminDashboard()
         {
             InitializeComponent();
@@ -31,18 +32,18 @@ namespace STAAS.UserManagement
            
         }
         SearchResultCollection results;
-        private string GetCurrentDomainPath()
+        private void GetCurrentDomainPath()
         {
-            DirectoryEntry de = new DirectoryEntry("LDAP://RootDSE");
-            return "LDAP://" + de.Properties["defaultNamingContext"][0].ToString();
+            DirectoryEntry de = new DirectoryEntry("LDAP://RootDSE");       
+            adConnection = "LDAP://" + de.Properties["defaultNamingContext"][0].ToString();               
         }
 
         private void GetAllUsers()
         {
+            GetCurrentDomainPath();
             DirectorySearcher ds = null;
             DirectoryEntry de = new
-            DirectoryEntry(GetCurrentDomainPath());
-
+            DirectoryEntry(adConnection);
 
             ds = new DirectorySearcher(de);
             ds.Filter = "(&(objectCategory=User)(objectClass=person))";
@@ -56,29 +57,16 @@ namespace STAAS.UserManagement
                 {
                     ListViewItem item = new ListViewItem(sr.Properties["name"][0].ToString());
                     item.SubItems.Add(sr.Properties["mail"][0].ToString());
-                    materialListView1.Items.Add(item);
+                    FillListView(item);
                 }
             }
         }
 
         private void AdminDashboard_Load(object sender, EventArgs e)
-        {        
-            GetAllUsers();
-            db.FoodTables.Load();
-            db.LunchRegisters.Load();
-            var food = from data in db.FoodTables select data;
-            
-            var myDate = DateTime.Now;
-            var dateString = myDate.Date.ToShortDateString();
-
-            var booked = from data in db.LunchRegisters where data.Date == dateString select data;
-            this.materialLabel2.Text = booked.Count().ToString();
-            foreach (var item in food)
-            {
-                this.mainCourse_label.Text = item.Food;
-                this.protien_label.Text = item.Protein;
-                this.sideDish_label.Text = item.SideDish;
-            }
+        {
+            progressBar1.Visible = false;
+            this.backgroundWorker1.RunWorkerAsync();
+           
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -152,5 +140,71 @@ namespace STAAS.UserManagement
             LunchApp form = new LunchApp();
             form.ShowDialog();
         }
+       
+
+        /// ALL METHODS BELOW ARE DELEGATE FUNCTIONS(MULTI-THREADING)
+
+        delegate void SetFillListViewCallback(ListViewItem item);
+        private void FillListView(ListViewItem item)
+        {
+            if (this.materialListView1.InvokeRequired)
+            {
+                SetFillListViewCallback d = new SetFillListViewCallback(FillListView);
+                this.Invoke(d, new object[] { item });
+            }
+            else
+            {
+                this.materialListView1.Items.Add(item);
+            }
+        }
+
+        delegate void SetClearListViewCallback();
+        private void ClearListView()
+        {
+            if (this.materialListView1.InvokeRequired)
+            {
+                SetClearListViewCallback d = new SetClearListViewCallback(ClearListView);
+                this.Invoke(d, new object[] { });
+            }
+            else
+            {
+                this.materialListView1.Items.Clear();
+            }
+        }
+
+        private delegate void updateProgressDelegate();
+        private void updateProgressBar()
+        {
+            this.progressBar1.Visible = true;
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            this.Invoke(new updateProgressDelegate(updateProgressBar));
+            GetAllUsers();
+            db.Foods.Load();
+            db.Lunch_Register.Load();
+            var food = from data in db.Foods select data;
+
+            var myDate = DateTime.Now;
+            var dateString = myDate.Date.ToShortDateString();
+
+            var booked = from data in db.Lunch_Register where data.Date == dateString select data;
+            this.materialLabel2.Text = booked.Count().ToString();
+            foreach (var item in food)
+            {
+                this.mainCourse_label.Text = item.Name;
+                this.protien_label.Text = item.Protein;
+                this.sideDish_label.Text = item.SideDish;
+            }
+           
+        }
+
+        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            this.progressBar1.Visible = false;
+            this.materialListView1.Enabled = true;
+        }
+
     }
 }

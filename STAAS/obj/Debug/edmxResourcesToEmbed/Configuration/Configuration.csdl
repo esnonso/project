@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="STAAS_dbModel2" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="daily_Management_Configs">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ResumptionTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ClosingTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Sunday" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Monday" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Tuesday" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Wednesday" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Thursday" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Friday" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Saturday" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="holiday_Management_Config">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HolidayName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="HolidayType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="StartDate" Type="DateTime" Precision="0" />
+    <Property Name="EndDate" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityContainer Name="STAAS_dbEntities2" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="daily_Management_Configs" EntityType="Self.daily_Management_Configs" />
+    <EntitySet Name="holiday_Management_Config" EntityType="Self.holiday_Management_Config" />
+  </EntityContainer>
+</Schema>

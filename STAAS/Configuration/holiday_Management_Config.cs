@@ -7,17 +7,17 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace STAAS.Food
+namespace STAAS.Configuration
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class FoodTable
+    public partial class holiday_Management_Config
     {
-        public string Food { get; set; }
-        public string Protein { get; set; }
-        public string SideDish { get; set; }
         public int ID { get; set; }
-        public string Soup { get; set; }
+        public string HolidayName { get; set; }
+        public string HolidayType { get; set; }
+        public Nullable<System.DateTime> StartDate { get; set; }
+        public Nullable<System.DateTime> EndDate { get; set; }
     }
 }

@@ -293,10 +293,10 @@ namespace STAAS.Fingerprint
 
                     firstFinger = resultConversion.Data;
 
-                    var fingerprintsData = from data in db.Fingerprints select data;
-                    foreach (var fingerprint in fingerprintsData)
+                    var staffData = from data in db.Staffs select data;
+                    foreach (var staff in staffData)
                     {
-                        Fmd val = Fmd.DeserializeXml(fingerprint.Template);
+                        Fmd val = Fmd.DeserializeXml(staff.FingerTemplate);
                         CompareResult compare = Comparison.Compare(firstFinger, 0, val, 0);
                         if (compare.ResultCode != Constants.ResultCode.DP_SUCCESS)
                         {
@@ -305,19 +305,18 @@ namespace STAAS.Fingerprint
                         }
                         if (Convert.ToDouble(compare.Score.ToString()) == 0)
                         {
-                            username = fingerprint.Name;
-                            email = fingerprint.Email;
+                            username = staff.Name;
+                            email = staff.Email;
                             var myDate = DateTime.Now;
                             var dateString = myDate.Date.ToString();
-
 
                             if (requestType == "signOut")
                             {
                                 SetRequest("signOutMovt");
-                                SetName(fingerprint.Name);
-                                SetDepartment(fingerprint.Department);
-                                SetGender(fingerprint.Gender);
-                                SetEmail(fingerprint.Email);
+                                SetName(staff.Name);
+                                SetDepartment(staff.Department);
+                                SetGender(staff.Gender);
+                                SetEmail(staff.Email);
                                 SetMovementReason();
                                 SetDate();
                                 count++;
@@ -330,7 +329,7 @@ namespace STAAS.Fingerprint
                                 string date = dateAndTime.Date.ToString();
                                 string signInTime = dateAndTime.ToString("HH:mm:ss");
                                 timeIn = signInTime;
-                                var user = from data in db.Movements where data.Email== fingerprint.Email && data.Date == date select data;
+                                var user = from data in db.Movements where data.StaffID== staff.ID && data.Date == date select data;
                                 foreach (var item in user)
                                 {
                                     item.TimeIn = signInTime;
@@ -439,7 +438,7 @@ namespace STAAS.Fingerprint
         private void MovementVerify_Load_1(object sender, EventArgs e)
         {
             LoadScanners();
-            db.Fingerprints.Load();
+            db.Staffs.Load();
             db.Movements.Load();
 
             this.movementBindingSource.DataSource = db.Movements.Local.ToBindingList();

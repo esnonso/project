@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="STAAS_dbModel3.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Customization">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyName" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="Website" Type="nvarchar" MaxLength="500" />
+    <Property Name="PhoneNumber1" Type="nvarchar" MaxLength="50" />
+    <Property Name="PhoneNumber2" Type="nvarchar" MaxLength="50" />
+    <Property Name="TagLine" Type="nvarchar" MaxLength="200" />
+    <Property Name="Email" Type="nvarchar" MaxLength="500" />
+    <Property Name="CompanyLogo" Type="varbinary(max)" />
+    <Property Name="Location" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityContainer Name="STAAS_dbModel3StoreContainer">
+    <EntitySet Name="Customization" EntityType="Self.Customization" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

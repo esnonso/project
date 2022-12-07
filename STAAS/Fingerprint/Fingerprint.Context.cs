@@ -26,7 +26,7 @@ namespace STAAS.Fingerprint
         }
     
         public virtual DbSet<Attendance> Attendances { get; set; }
-        public virtual DbSet<Fingerprint> Fingerprints { get; set; }
         public virtual DbSet<Movement> Movements { get; set; }
+        public virtual DbSet<Staff> Staffs { get; set; }
     }
 }

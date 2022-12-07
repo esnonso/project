@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="STAAS_dbModel2.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="daily_Management_Configs">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ResumptionTime" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ClosingTime" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Sunday" Type="nvarchar" MaxLength="50" />
+          <Property Name="Monday" Type="nvarchar" MaxLength="50" />
+          <Property Name="Tuesday" Type="nvarchar" MaxLength="50" />
+          <Property Name="Wednesday" Type="nvarchar" MaxLength="50" />
+          <Property Name="Thursday" Type="nvarchar" MaxLength="50" />
+          <Property Name="Friday" Type="nvarchar" MaxLength="50" />
+          <Property Name="Saturday" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="holiday_Management_Config">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HolidayName" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="HolidayType" Type="nvarchar" MaxLength="50" />
+          <Property Name="StartDate" Type="date" />
+          <Property Name="EndDate" Type="date" />
+        </EntityType>
+        <EntityContainer Name="STAAS_dbModel2StoreContainer">
+          <EntitySet Name="daily_Management_Configs" EntityType="Self.daily_Management_Configs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="holiday_Management_Config" EntityType="Self.holiday_Management_Config" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="STAAS_dbModel2" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="daily_Management_Configs">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ResumptionTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClosingTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Sunday" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Monday" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Tuesday" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Wednesday" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Thursday" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Friday" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Saturday" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="holiday_Management_Config">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HolidayName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="HolidayType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StartDate" Type="DateTime" Precision="0" />
+          <Property Name="EndDate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityContainer Name="STAAS_dbEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="daily_Management_Configs" EntityType="Self.daily_Management_Configs" />
+          <EntitySet Name="holiday_Management_Config" EntityType="Self.holiday_Management_Config" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="STAAS_dbModel2StoreContainer" CdmEntityContainer="STAAS_dbEntities2">
+          <EntitySetMapping Name="daily_Management_Configs">
+            <EntityTypeMapping TypeName="STAAS_dbModel2.daily_Management_Configs">
+              <MappingFragment StoreEntitySet="daily_Management_Configs">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ResumptionTime" ColumnName="ResumptionTime" />
+                <ScalarProperty Name="ClosingTime" ColumnName="ClosingTime" />
+                <ScalarProperty Name="Sunday" ColumnName="Sunday" />
+                <ScalarProperty Name="Monday" ColumnName="Monday" />
+                <ScalarProperty Name="Tuesday" ColumnName="Tuesday" />
+                <ScalarProperty Name="Wednesday" ColumnName="Wednesday" />
+                <ScalarProperty Name="Thursday" ColumnName="Thursday" />
+                <ScalarProperty Name="Friday" ColumnName="Friday" />
+                <ScalarProperty Name="Saturday" ColumnName="Saturday" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="holiday_Management_Config">
+            <EntityTypeMapping TypeName="STAAS_dbModel2.holiday_Management_Config">
+              <MappingFragment StoreEntitySet="holiday_Management_Config">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="HolidayName" ColumnName="HolidayName" />
+                <ScalarProperty Name="HolidayType" ColumnName="HolidayType" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,24 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="STAAS_dbModel1StoreContainer" CdmEntityContainer="STAAS_dbEntities1">
-    <EntitySetMapping Name="FoodTables">
-      <EntityTypeMapping TypeName="STAAS_dbModel1.FoodTable">
-        <MappingFragment StoreEntitySet="FoodTable">
-          <ScalarProperty Name="Food" ColumnName="Food" />
+    <EntitySetMapping Name="Foods">
+      <EntityTypeMapping TypeName="STAAS_dbModel1.Food">
+        <MappingFragment StoreEntitySet="Food">
+          <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Protein" ColumnName="Protein" />
           <ScalarProperty Name="SideDish" ColumnName="SideDish" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="Soup" ColumnName="Soup" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="LunchRegisters">
-      <EntityTypeMapping TypeName="STAAS_dbModel1.LunchRegister">
-        <MappingFragment StoreEntitySet="LunchRegister">
+    <EntitySetMapping Name="Lunch_Register">
+      <EntityTypeMapping TypeName="STAAS_dbModel1.Lunch_Register">
+        <MappingFragment StoreEntitySet="Lunch_Register">
           <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="Staff_name" ColumnName="Staff_name" />
-          <ScalarProperty Name="Staff_email" ColumnName="Staff_email" />
-          <ScalarProperty Name="time_booked" ColumnName="time_booked" />
+          <ScalarProperty Name="StaffID" ColumnName="StaffID" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
           <ScalarProperty Name="Date" ColumnName="Date" />
         </MappingFragment>
       </EntityTypeMapping>

@@ -4,59 +4,55 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="STAAS_dbModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="FoodTable">
+      <Schema Namespace="STAAS_dbModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Food">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="Food" Type="nvarchar" MaxLength="50" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Protein" Type="nvarchar" MaxLength="50" />
-          <Property Name="SideDish" Type="nvarchar" MaxLength="50" />
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Soup" Type="nvarchar" MaxLength="50" />
+          <Property Name="SideDish" Type="nvarchar" MaxLength="200" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" />
         </EntityType>
-        <EntityType Name="LunchRegister">
+        <EntityType Name="Lunch_Register">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Staff_name" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="Staff_email" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="time_booked" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="StaffID" Type="int" Nullable="false" />
+          <Property Name="Time" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Date" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityContainer Name="STAAS_dbModel1StoreContainer">
-          <EntitySet Name="FoodTable" EntityType="Self.FoodTable" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="LunchRegister" EntityType="Self.LunchRegister" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Food" EntityType="Self.Food" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Lunch_Register" EntityType="Self.Lunch_Register" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="STAAS_dbModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="FoodTable">
+        <EntityType Name="Food">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="Food" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Protein" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="SideDish" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Soup" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SideDish" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="LunchRegister">
+        <EntityType Name="Lunch_Register">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Staff_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Staff_email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="time_booked" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StaffID" Type="Int32" Nullable="false" />
+          <Property Name="Time" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
         <EntityContainer Name="STAAS_dbEntities1" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="FoodTables" EntityType="Self.FoodTable" />
-          <EntitySet Name="LunchRegisters" EntityType="Self.LunchRegister" />
+          <EntitySet Name="Foods" EntityType="Self.Food" />
+          <EntitySet Name="Lunch_Register" EntityType="Self.Lunch_Register" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -64,24 +60,22 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="STAAS_dbModel1StoreContainer" CdmEntityContainer="STAAS_dbEntities1">
-          <EntitySetMapping Name="FoodTables">
-            <EntityTypeMapping TypeName="STAAS_dbModel1.FoodTable">
-              <MappingFragment StoreEntitySet="FoodTable">
-                <ScalarProperty Name="Food" ColumnName="Food" />
+          <EntitySetMapping Name="Foods">
+            <EntityTypeMapping TypeName="STAAS_dbModel1.Food">
+              <MappingFragment StoreEntitySet="Food">
+                <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Protein" ColumnName="Protein" />
                 <ScalarProperty Name="SideDish" ColumnName="SideDish" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Soup" ColumnName="Soup" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="LunchRegisters">
-            <EntityTypeMapping TypeName="STAAS_dbModel1.LunchRegister">
-              <MappingFragment StoreEntitySet="LunchRegister">
+          <EntitySetMapping Name="Lunch_Register">
+            <EntityTypeMapping TypeName="STAAS_dbModel1.Lunch_Register">
+              <MappingFragment StoreEntitySet="Lunch_Register">
                 <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Staff_name" ColumnName="Staff_name" />
-                <ScalarProperty Name="Staff_email" ColumnName="Staff_email" />
-                <ScalarProperty Name="time_booked" ColumnName="time_booked" />
+                <ScalarProperty Name="StaffID" ColumnName="StaffID" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
               </MappingFragment>
             </EntityTypeMapping>

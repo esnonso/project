@@ -105,7 +105,7 @@
             // 
             // lunchRegisterBindingSource
             // 
-            this.lunchRegisterBindingSource.DataSource = typeof(STAAS.Food.LunchRegister);
+            this.lunchRegisterBindingSource.DataSource = typeof(STAAS.Food.Lunch_Register);
             // 
             // time_bookedTextBox
             // 

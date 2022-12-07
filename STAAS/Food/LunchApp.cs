@@ -23,9 +23,9 @@ namespace FoodAppSTAAS.Lunch
 
         private void LunchApp_Load(object sender, EventArgs e)
         {
-            db.FoodTables.Load();
-            this.foodTableBindingSource.DataSource = db.FoodTables.Local.ToBindingList();
-            var foodExist = from data in db.FoodTables select data;
+            db.Foods.Load();
+            this.foodTableBindingSource.DataSource = db.Foods.Local.ToBindingList();
+            var foodExist = from data in db.Foods select data;
             if(foodExist.Count() == 0)
             {
                 this.foodTableBindingSource.AddNew();

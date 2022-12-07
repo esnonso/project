@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="STAAS_dbModel2StoreContainer" CdmEntityContainer="STAAS_dbEntities2">
+    <EntitySetMapping Name="daily_Management_Configs">
+      <EntityTypeMapping TypeName="STAAS_dbModel2.daily_Management_Configs">
+        <MappingFragment StoreEntitySet="daily_Management_Configs">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ResumptionTime" ColumnName="ResumptionTime" />
+          <ScalarProperty Name="ClosingTime" ColumnName="ClosingTime" />
+          <ScalarProperty Name="Sunday" ColumnName="Sunday" />
+          <ScalarProperty Name="Monday" ColumnName="Monday" />
+          <ScalarProperty Name="Tuesday" ColumnName="Tuesday" />
+          <ScalarProperty Name="Wednesday" ColumnName="Wednesday" />
+          <ScalarProperty Name="Thursday" ColumnName="Thursday" />
+          <ScalarProperty Name="Friday" ColumnName="Friday" />
+          <ScalarProperty Name="Saturday" ColumnName="Saturday" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="holiday_Management_Config">
+      <EntityTypeMapping TypeName="STAAS_dbModel2.holiday_Management_Config">
+        <MappingFragment StoreEntitySet="holiday_Management_Config">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="HolidayName" ColumnName="HolidayName" />
+          <ScalarProperty Name="HolidayType" ColumnName="HolidayType" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

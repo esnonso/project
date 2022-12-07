@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\chinonso\\source\\repos\\STAAS_sln\\STAAS\\STAAS.csproj": {}
+    "C:\\Users\\chinonso\\source\\repos\\project\\STAAS\\STAAS.csproj": {}
   },
   "projects": {
-    "C:\\Users\\chinonso\\source\\repos\\STAAS_sln\\STAAS\\STAAS.csproj": {
+    "C:\\Users\\chinonso\\source\\repos\\project\\STAAS\\STAAS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\chinonso\\source\\repos\\STAAS_sln\\STAAS\\STAAS.csproj",
+        "projectUniqueName": "C:\\Users\\chinonso\\source\\repos\\project\\STAAS\\STAAS.csproj",
         "projectName": "STAAS",
-        "projectPath": "C:\\Users\\chinonso\\source\\repos\\STAAS_sln\\STAAS\\STAAS.csproj",
+        "projectPath": "C:\\Users\\chinonso\\source\\repos\\project\\STAAS\\STAAS.csproj",
         "packagesPath": "C:\\Users\\chinonso\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\chinonso\\source\\repos\\STAAS_sln\\STAAS\\obj\\",
+        "outputPath": "C:\\Users\\chinonso\\source\\repos\\project\\STAAS\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "configFilePaths": [

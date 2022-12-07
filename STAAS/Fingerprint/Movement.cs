@@ -14,14 +14,13 @@ namespace STAAS.Fingerprint
     
     public partial class Movement
     {
-        public long ID { get; set; }
-        public string Reason { get; set; }
-        public string Email { get; set; }
-        public string Name { get; set; }
-        public string TimeIn { get; set; }
+        public int ID { get; set; }
         public string TimeOut { get; set; }
+        public string TimeIn { get; set; }
+        public string MovementReason { get; set; }
+        public int StaffID { get; set; }
         public string Date { get; set; }
-        public string Department { get; set; }
-        public string Gender { get; set; }
+    
+        public virtual Staff Staff { get; set; }
     }
 }

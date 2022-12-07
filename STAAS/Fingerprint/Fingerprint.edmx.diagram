@@ -4,10 +4,12 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="c63ba0a364fd4187b499f3e52d0a0e5d" Name="Diagram1">
-        <EntityTypeShape EntityType="STAAS_dbModel.Attendance" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="STAAS_dbModel.Fingerprint" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="STAAS_dbModel.Movement" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+      <Diagram DiagramId="5c64330d8f1a4e20b6059141f1faa585" Name="Diagram1">
+        <EntityTypeShape EntityType="STAAS_dbModel.Attendance" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="STAAS_dbModel.Movement" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="STAAS_dbModel.Staff" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
+        <AssociationConnector Association="STAAS_dbModel.FK_Attendance_Staff" ManuallyRouted="false" />
+        <AssociationConnector Association="STAAS_dbModel.FK_Movement_Staff" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

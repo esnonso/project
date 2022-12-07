@@ -7,17 +7,22 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace STAAS.Food
+namespace STAAS.Configuration
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class LunchRegister
+    public partial class daily_Management_Configs
     {
         public int ID { get; set; }
-        public string Staff_name { get; set; }
-        public string Staff_email { get; set; }
-        public string time_booked { get; set; }
-        public string Date { get; set; }
+        public string ResumptionTime { get; set; }
+        public string ClosingTime { get; set; }
+        public string Sunday { get; set; }
+        public string Monday { get; set; }
+        public string Tuesday { get; set; }
+        public string Wednesday { get; set; }
+        public string Thursday { get; set; }
+        public string Friday { get; set; }
+        public string Saturday { get; set; }
     }
 }

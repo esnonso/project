@@ -33,6 +33,7 @@
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.materialTabControl1 = new MaterialSkin.Controls.MaterialTabControl();
             this.Home = new System.Windows.Forms.TabPage();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.materialButton1 = new MaterialSkin.Controls.MaterialButton();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.edit_btn = new MaterialSkin.Controls.MaterialButton();
@@ -99,6 +100,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.materialListView2 = new MaterialSkin.Controls.MaterialListView();
             this.logOut = new System.Windows.Forms.TabPage();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.materialTabControl1.SuspendLayout();
             this.Home.SuspendLayout();
             this.Configuration.SuspendLayout();
@@ -153,6 +155,7 @@
             // Home
             // 
             this.Home.BackColor = System.Drawing.Color.White;
+            this.Home.Controls.Add(this.progressBar1);
             this.Home.Controls.Add(this.materialButton1);
             this.Home.Controls.Add(this.textBox1);
             this.Home.Controls.Add(this.edit_btn);
@@ -166,6 +169,13 @@
             this.Home.Size = new System.Drawing.Size(1254, 637);
             this.Home.TabIndex = 0;
             this.Home.Text = "Home";
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(414, 226);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(348, 30);
+            this.progressBar1.TabIndex = 6;
             // 
             // materialButton1
             // 
@@ -227,6 +237,7 @@
             this.name,
             this.email});
             this.materialListView1.Depth = 0;
+            this.materialListView1.Enabled = false;
             this.materialListView1.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.materialListView1.FullRowSelect = true;
             this.materialListView1.HideSelection = false;
@@ -1042,6 +1053,11 @@
             this.logOut.Text = "Log Out";
             this.logOut.UseVisualStyleBackColor = true;
             // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
+            // 
             // AdminDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
@@ -1165,5 +1181,7 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel4;
         private MaterialSkin.Controls.MaterialLabel materialLabel3;
         private System.Windows.Forms.TabPage logOut;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }

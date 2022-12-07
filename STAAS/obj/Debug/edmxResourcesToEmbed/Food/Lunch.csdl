@@ -1,27 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="STAAS_dbModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityType Name="FoodTable">
+  <EntityType Name="Food">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="Food" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Protein" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="SideDish" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Soup" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SideDish" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
   </EntityType>
-  <EntityType Name="LunchRegister">
+  <EntityType Name="Lunch_Register">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Staff_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Staff_email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="time_booked" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="StaffID" Type="Int32" Nullable="false" />
+    <Property Name="Time" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
   </EntityType>
   <EntityContainer Name="STAAS_dbEntities1" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="FoodTables" EntityType="Self.FoodTable" />
-    <EntitySet Name="LunchRegisters" EntityType="Self.LunchRegister" />
+    <EntitySet Name="Foods" EntityType="Self.Food" />
+    <EntitySet Name="Lunch_Register" EntityType="Self.Lunch_Register" />
   </EntityContainer>
 </Schema>
